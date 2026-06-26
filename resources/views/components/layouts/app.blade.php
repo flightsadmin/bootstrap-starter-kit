@@ -7,6 +7,34 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <script>
+        const getPreferredTheme = (theme) => {
+            if (theme === 'system') {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            return theme;
+        }
+
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-bs-theme', getPreferredTheme(theme));
+            document.documentElement.setAttribute('data-theme-preference', theme);
+        }
+
+        applyTheme('{{ app('settings')['theme'] ?? 'light' }}');
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            const currentPref = document.documentElement.getAttribute('data-theme-preference');
+            if (currentPref === 'system') {
+                applyTheme('system');
+            }
+        });
+
+        document.addEventListener('livewire:initialized', () => {
+            Livewire.on('theme-updated', (event) => {
+                applyTheme(event.theme);
+            });
+        });
+    </script>
 </head>
 
 <body class="min-vh-100">

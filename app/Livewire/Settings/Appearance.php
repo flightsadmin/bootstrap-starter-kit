@@ -20,6 +20,7 @@ class Appearance extends Component
     {
         Setting::set('theme', $value);
         $this->dispatch('settings-saved');
+        $this->dispatch('theme-updated', theme: $value);
     }
 
     public function saveAppearance()

@@ -9,8 +9,8 @@
     <div class="p-3 flex-grow-1 sidebar">
         <ul class="nav flex-column gap-1">
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center {{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                    wire:navigate href="{{ route('dashboard') }}">
+                <a class="nav-link d-flex align-items-center"
+                    wire:current="active" wire:navigate href="{{ route('dashboard') }}">
                     <i class="bi bi-grid me-2"></i> Dashboard
                 </a>
             </li>

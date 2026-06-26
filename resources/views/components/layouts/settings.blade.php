@@ -13,19 +13,19 @@
         <div class="col-12">
             <ul class="nav nav-tabs mb-4">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('settings.profile') ? 'active' : '' }}" wire:navigate
+                    <a class="nav-link" wire:navigate wire:current="active"
                         href="{{ route('settings.profile') }}">
                         <i class="bi bi-person me-2"></i> Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('settings.password') ? 'active' : '' }}" wire:navigate
+                    <a class="nav-link" wire:navigate wire:current="active"
                         href="{{ route('settings.password') }}">
                         <i class="bi bi-key me-2"></i> Password
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('settings.appearance') ? 'active' : '' }}" wire:navigate
+                    <a class="nav-link" wire:navigate wire:current="active"
                         href="{{ route('settings.appearance') }}">
                         <i class="bi bi-palette me-2"></i> Appearance
                     </a>

@@ -7,23 +7,29 @@
         <h3 class="fw-semibold">Dashboard</h3>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-share me-1"></i> Share
+                <button type="button" class="btn btn-sm btn-outline-primary" wire:click="share" wire:loading.class="opacity-50" wire:target="share">
+                    <i class="bi bi-share me-1" wire:loading.class="d-none" wire:target="share"></i>
+                    <span wire:loading wire:target="share" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                    Share
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-primary">
-                    <i class="bi bi-download me-1"></i> Export
+                <button type="button" class="btn btn-sm btn-outline-primary" wire:click="export" wire:loading.class="opacity-50" wire:target="export">
+                    <i class="bi bi-download me-1" wire:loading.class="d-none" wire:target="export"></i>
+                    <span wire:loading wire:target="export" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                    Export
                 </button>
             </div>
             <div class="dropdown">
                 <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
-                    data-bs-toggle="dropdown">
-                    <i class="bi bi-calendar3 me-1"></i> This week
+                    data-bs-toggle="dropdown" wire:loading.class="opacity-50" wire:target="setFilter">
+                    <i class="bi bi-calendar3 me-1" wire:loading.class="d-none" wire:target="setFilter"></i>
+                    <span wire:loading wire:target="setFilter" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                    {{ $filter }}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item bi bi-calendar-day" href="#"> Today</a></li>
-                    <li><a class="dropdown-item bi bi-calendar-week" href="#"> This week</a></li>
-                    <li><a class="dropdown-item bi bi-calendar-month" href="#"> This month</a></li>
-                    <li><a class="dropdown-item bi bi-calendar3" href="#"> This year</a></li>
+                    <li><button type="button" class="dropdown-item bi bi-calendar-day" wire:click="setFilter('Today')"> Today</button></li>
+                    <li><button type="button" class="dropdown-item bi bi-calendar-week" wire:click="setFilter('This week')"> This week</button></li>
+                    <li><button type="button" class="dropdown-item bi bi-calendar-month" wire:click="setFilter('This month')"> This month</button></li>
+                    <li><button type="button" class="dropdown-item bi bi-calendar3" wire:click="setFilter('This year')"> This year</button></li>
                 </ul>
             </div>
         </div>
@@ -112,7 +118,10 @@
                 <div class="card-header bg-transparent border-0">
                     <div class="d-flex align-items-center justify-content-between">
                         <h5 class="mb-0">Recent Activity</h5>
-                        <button class="btn btn-sm">View All</button>
+                        <button type="button" class="btn btn-sm text-decoration-none" wire:click="viewAll" wire:loading.class="opacity-50" wire:target="viewAll">
+                            <span wire:loading.remove wire:target="viewAll">View All</span>
+                            <span wire:loading wire:target="viewAll" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
                 <div class="card-body p-0">
@@ -148,18 +157,18 @@
                 </div>
                 <div class="card-body">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-outline-primary d-flex align-items-center justify-content-between">
+                        <a href="{{ route('dashboard') }}" wire:navigate class="btn btn-outline-primary d-flex align-items-center justify-content-between text-decoration-none">
                             <span><i class="bi bi-plus-circle me-2"></i>New Project</span>
                             <i class="bi bi-chevron-right"></i>
-                        </button>
-                        <button class="btn btn-outline-primary d-flex align-items-center justify-content-between">
+                        </a>
+                        <a href="{{ route('dashboard') }}" wire:navigate class="btn btn-outline-primary d-flex align-items-center justify-content-between text-decoration-none">
                             <span><i class="bi bi-people me-2"></i>Invite Team</span>
                             <i class="bi bi-chevron-right"></i>
-                        </button>
-                        <button class="btn btn-outline-primary d-flex align-items-center justify-content-between">
+                        </a>
+                        <a href="{{ route('settings.profile') }}" wire:navigate class="btn btn-outline-primary d-flex align-items-center justify-content-between text-decoration-none">
                             <span><i class="bi bi-gear me-2"></i>Settings</span>
                             <i class="bi bi-chevron-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    <script>
+        const getPreferredTheme = (theme) => {
+            if (theme === 'system') {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            return theme;
+        }
+
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-bs-theme', getPreferredTheme(theme));
+            document.documentElement.setAttribute('data-theme-preference', theme);
+        }
+
+        applyTheme('{{ app('settings')['theme'] ?? 'light' }}');
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            const currentPref = document.documentElement.getAttribute('data-theme-preference');
+            if (currentPref === 'system') {
+                applyTheme('system');
+            }
+        });
+
+        document.addEventListener('livewire:initialized', () => {
+            Livewire.on('theme-updated', (event) => {
+                applyTheme(event.theme);
+            });
+        });
+    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
