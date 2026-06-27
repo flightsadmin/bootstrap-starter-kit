@@ -16,9 +16,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->singleton('settings', function () {
-            return Cache::rememberForever('settings', function () {
+            $defaults = [
+                'theme' => 'light',
+            ];
+
+            return array_merge($defaults, Cache::rememberForever('settings', function () {
                 return Setting::all()->pluck('value', 'key')->toArray();
-            });
+            }));
         });
     }
 }
