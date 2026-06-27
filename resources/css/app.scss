@@ -28,8 +28,32 @@
     }
 }
 
-.ps-lg-280px {
-    @include media-breakpoint-up(lg) {
-        padding-left: 280px;
+.placeholder-hatch {
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.03),
+            rgba(0, 0, 0, 0.03) 1.5px,
+            transparent 1.5px,
+            transparent 8px
+        ),
+        linear-gradient(135deg, rgba(0, 0, 0, 0.005) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+[data-bs-theme="dark"] .placeholder-hatch {
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.04) 1.5px,
+            transparent 1.5px,
+            transparent 8px
+        ),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.ps-lg-260px {
+    @media (min-width: 992px) {
+        padding-left: 260px;
     }
 }

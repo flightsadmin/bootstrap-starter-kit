@@ -40,17 +40,17 @@
 <body class="min-vh-100">
     <!-- Sidebar -->
     <div class="d-flex min-vh-100">
-        <div class="sidebar border-end position-fixed h-100 d-none d-lg-block" style="width: 280px">
+        <div class="sidebar border-end position-fixed h-100 d-none d-lg-block" style="width: 260px">
             {{ $sidebar ?? '' }}
         </div>
         <div class="sidebar-mobile position-fixed h-100 bg-light border-end collapse d-lg-none"
-            style="width: 280px; z-index: 1045" id="sidebar">
+            style="width: 260px; z-index: 1045" id="sidebar">
             {{ $sidebar ?? '' }}
         </div>
 
         <!-- Main Content -->
         <div class="flex-grow-1">
-            <div class="ps-lg-280px">
+            <div class="ps-lg-260px">
                 <nav class="navbar d-lg-none">
                     <div class="container-fluid d-flex justify-content-between">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
