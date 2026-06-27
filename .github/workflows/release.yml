@@ -1,0 +1,50 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Get previous tag
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        continue-on-error: true
+        with:
+          fallback: v0.0.0
+      
+      - name: Calculate new version
+        id: version
+        uses: "paulhatch/semantic-version@v5.3.0"
+        with:
+          tag_prefix: "v"
+          major_pattern: "BREAKING CHANGE:"
+          minor_pattern: "feat:"
+          version_format: "${major}.${minor}.${patch}"
+          bump_each_commit: true
+          
+      - name: Delete Previous Release
+        if: ${{ steps.version.outputs.version != steps.previoustag.outputs.tag }}
+        uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+          tag_name: ${{ steps.previoustag.outputs.tag }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_release: true
+
+      - name: Create Release
+        if: ${{ steps.version.outputs.version != steps.previoustag.outputs.tag }}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          generate_release_notes: true
+          draft: false

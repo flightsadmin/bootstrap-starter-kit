@@ -1,0 +1,59 @@
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Import Bootstrap Icons
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Sidebar styles
+.sidebar {
+    .nav-link {
+        color: #4B5563;
+        padding: 0.625rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s;
+        
+        &:hover {
+            background-color: #F3F4F6;
+        }
+        
+        &.active {
+            color: #1D4ED8;
+            background-color: #EFF6FF;
+            font-weight: 500;
+        }
+
+        i {
+            width: 1.25rem;
+        }
+    }
+}
+
+.placeholder-hatch {
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0, 0, 0, 0.03),
+            rgba(0, 0, 0, 0.03) 1.5px,
+            transparent 1.5px,
+            transparent 8px
+        ),
+        linear-gradient(135deg, rgba(0, 0, 0, 0.005) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+[data-bs-theme="dark"] .placeholder-hatch {
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0.04) 1.5px,
+            transparent 1.5px,
+            transparent 8px
+        ),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.ps-lg-260px {
+    @media (min-width: 992px) {
+        padding-left: 260px;
+    }
+}
