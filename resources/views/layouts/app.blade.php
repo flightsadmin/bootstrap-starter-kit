@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    @livewireStyles
     <script>
         const getPreferredTheme = (theme) => {
             if (theme === 'system') {
@@ -90,6 +91,8 @@
             </template>
         </div>
     </div>
+    @livewireScripts
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <x-slot:sidebar>
-    <x-layouts.sidebar />
+    <x-sidebar />
 </x-slot:sidebar>
 
 <div class="container-fluid">

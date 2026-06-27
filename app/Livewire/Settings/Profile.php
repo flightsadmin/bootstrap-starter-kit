@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-#[Layout('components.layouts.app')]
+#[Layout('layouts.app')]
 class Profile extends Component
 {
     public string $name = '';

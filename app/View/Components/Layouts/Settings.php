@@ -8,6 +8,6 @@ class Settings extends Component
 {
     public function render()
     {
-        return view('components.layouts.settings');
+        return view('components.settings');
     }
 }

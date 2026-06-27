@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 
-#[Layout('components.layouts.app')]
+#[Layout('layouts.app')]
 class Password extends Component
 {
     public string $current_password = '';
