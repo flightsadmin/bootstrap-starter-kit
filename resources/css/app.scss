@@ -7,18 +7,19 @@
 // Sidebar styles
 .sidebar {
     .nav-link {
-        color: #4B5563;
+        color: var(--bs-secondary-color);
         padding: 0.625rem 1rem;
         border-radius: 0.5rem;
         transition: all 0.2s;
         
         &:hover {
-            background-color: #F3F4F6;
+            background-color: var(--bs-secondary-bg);
+            color: var(--bs-body-color);
         }
         
         &.active {
-            color: #1D4ED8;
-            background-color: #EFF6FF;
+            color: var(--bs-primary);
+            background-color: rgba(var(--bs-primary-rgb), 0.1);
             font-weight: 500;
         }
 

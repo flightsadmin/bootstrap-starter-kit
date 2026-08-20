@@ -35,6 +35,13 @@
                 applyTheme(event.theme);
             });
         });
+
+        document.addEventListener('livewire:navigated', () => {
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            if (currentTheme) {
+                applyTheme(currentTheme);
+            }
+        });
     </script>
 </head>
 
