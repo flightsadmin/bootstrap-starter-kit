@@ -4,6 +4,7 @@ namespace App\Livewire\Settings;
 
 use App\Models\Setting;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 #[Layout('layouts.app')]
@@ -27,5 +28,11 @@ class Appearance extends Component
     {
         Setting::set('theme', $this->theme);
         $this->dispatch('settings-saved');
+    }
+
+    #[On('theme-updated')]
+    public function syncTheme($theme)
+    {
+        $this->theme = $theme;
     }
 }
