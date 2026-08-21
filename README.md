@@ -1,7 +1,6 @@
-<p align="center"><a href="https://github.com/flightsadmin/bootstrap-starter-kit" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo"></a></p>
-
 <p align="center">
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/flightsadmin/bootstrap-starter-kit/release.yml?branch=main" alt="Build Status"></a>
+<a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/downloads/flightsadmin/bootstrap-starter-kit/total" alt="Downloads"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/v/release/flightsadmin/bootstrap-starter-kit" alt="Latest Release"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/flightsadmin/bootstrap-starter-kit" alt="Stars"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/network/members"><img src="https://img.shields.io/github/forks/flightsadmin/bootstrap-starter-kit" alt="Forks"></a>
