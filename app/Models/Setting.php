@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Setting extends Model
 {
@@ -12,6 +12,7 @@ class Setting extends Model
     public static function get($key, $default = null)
     {
         $settings = app('settings');
+
         return $settings[$key] ?? $default;
     }
 

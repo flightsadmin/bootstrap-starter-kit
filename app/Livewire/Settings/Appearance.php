@@ -3,8 +3,8 @@
 namespace App\Livewire\Settings;
 
 use App\Models\Setting;
-use Livewire\Component;
 use Livewire\Attributes\Layout;
+use Livewire\Component;
 
 #[Layout('layouts.app')]
 class Appearance extends Component
