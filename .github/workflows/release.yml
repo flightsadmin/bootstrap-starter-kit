@@ -16,6 +16,7 @@ on:
 
 jobs:
     release:
+        name: Release Management
         runs-on: ubuntu-latest
         permissions:
             contents: write
