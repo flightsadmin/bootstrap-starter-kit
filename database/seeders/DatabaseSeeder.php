@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        Setting::create([
-            'key' => 'theme',
-            'value' => 'light',
-        ]);
+        Setting::firstOrCreate(
+            ['key' => 'theme'],
+            ['value' => 'light']
+        );
     }
 }
