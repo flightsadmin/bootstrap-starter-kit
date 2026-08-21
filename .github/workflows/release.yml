@@ -1,11 +1,18 @@
 name: Create Release
 
 on:
-    push:
-        branches:
-            - main
-
     workflow_dispatch:
+        inputs:
+            bump:
+                description: "Force version bump type"
+                required: true
+                type: choice
+                options:
+                    - auto
+                    - patch
+                    - minor
+                    - major
+                default: "auto"
 
 jobs:
     release:
@@ -23,8 +30,8 @@ jobs:
               uses: paulhatch/semantic-version@v6.0.2
               with:
                   tag_prefix: "v"
-                  major_pattern: "BREAKING CHANGE:"
-                  minor_pattern: "feat:"
+                  major_pattern: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump == 'major' && '.*' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bump != 'auto' && 'DISABLE_MAJOR' || 'BREAKING CHANGE:') }}
+                  minor_pattern: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump == 'minor' && '.*' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bump != 'auto' && 'DISABLE_MINOR' || 'feat:') }}
                   version_format: "${major}.${minor}.${patch}"
                   bump_each_commit: true
 
