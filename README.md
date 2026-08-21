@@ -1,7 +1,6 @@
 <p align="center">
-<a href="https://github.com/flightsadmin/bootstrap-starter-kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/flightsadmin/bootstrap-starter-kit/release.yml?branch=main" alt="Build Status"></a>
-<a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/downloads/flightsadmin/bootstrap-starter-kit/total" alt="Downloads"></a>
-<a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/v/release/flightsadmin/bootstrap-starter-kit" alt="Latest Release"></a>
+<a href="https://packagist.org/packages/flightsadmin/bootstrap-starter-kit"><img src="https://img.shields.io/packagist/dt/flightsadmin/bootstrap-starter-kit" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/flightsadmin/bootstrap-starter-kit"><img src="https://img.shields.io/packagist/v/flightsadmin/bootstrap-starter-kit" alt="Latest Stable Version"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/flightsadmin/bootstrap-starter-kit" alt="Stars"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/network/members"><img src="https://img.shields.io/github/forks/flightsadmin/bootstrap-starter-kit" alt="Forks"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/issues"><img src="https://img.shields.io/github/issues/flightsadmin/bootstrap-starter-kit" alt="Issues"></a>
