@@ -29,4 +29,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function initials(): string
+    {
+        $words = explode(' ', $this->name);
+        if (count($words) >= 2) {
+            return mb_strtoupper(mb_substr($words[0], 0, 1) . mb_substr(end($words), 0, 1));
+        }
+        return mb_strtoupper(mb_substr($this->name, 0, 2));
+    }
+
 }
