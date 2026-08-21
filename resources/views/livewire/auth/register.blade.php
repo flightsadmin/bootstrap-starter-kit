@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="mt-3 text-center">
-                            <a href="{{ route('login') }}" class="text-decoration-none">Already registered?</a>
+                            <a wire:navigate href="{{ route('login') }}" class="text-decoration-none">Already registered?</a>
                         </div>
                     </form>
                 </div>

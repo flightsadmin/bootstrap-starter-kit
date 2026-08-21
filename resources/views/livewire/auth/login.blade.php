@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="mt-3 text-center">
-                            <a href="{{ route('password.request') }}" class="text-decoration-none">Forgot your
+                            <a wire:navigate href="{{ route('password.request') }}" class="text-decoration-none">Forgot your
                                 password?</a>
                         </div>
                     </form>

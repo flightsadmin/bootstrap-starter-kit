@@ -1,6 +1,6 @@
 <div class="d-flex flex-column h-100">
     <div class="px-4 py-2 border-bottom">
-        <a href="{{ route('home') }}" class="text-decoration-none fs-4">
+        <a wire:navigate href="{{ route('home') }}" class="text-decoration-none fs-4">
             <i class="bi bi-boxes text-primary me-2"></i>
             <span class="fw-semibold text-primary">{{ config('app.name') }}</span>
         </a>

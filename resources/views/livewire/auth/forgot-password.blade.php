@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{ route('login') }}" class="text-decoration-none">
+                            <a wire:navigate href="{{ route('login') }}" class="text-decoration-none">
                                 <i class="bi bi-arrow-left me-1"></i> Back to login
                             </a>
                             <button type="submit" class="btn btn-primary btn-sm">

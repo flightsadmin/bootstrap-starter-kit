@@ -52,12 +52,12 @@
             </a>
             <div class="d-flex gap-2">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="btn btn-sm btn-primary">
+                    <a wire:navigate href="{{ route('dashboard') }}" class="btn btn-sm btn-primary">
                         <i class="bi bi-grid me-2"></i>Dashboard
                     </a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-sm btn-outline-primary">Sign in</a>
-                    <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Get started</a>
+                    <a wire:navigate href="{{ route('login') }}" class="btn btn-sm btn-outline-primary">Sign in</a>
+                    <a wire:navigate href="{{ route('register') }}" class="btn btn-sm btn-primary">Get started</a>
                 @endauth
             </div>
         </div>
@@ -72,7 +72,7 @@
                     your next project.
                 </p>
                 <div class="d-flex justify-content-center gap-2">
-                    <a href="{{ route('register') }}" class="btn btn-sm btn-primary px-4">
+                    <a wire:navigate href="{{ route('register') }}" class="btn btn-sm btn-primary px-4">
                         <i class="bi bi-rocket me-2"></i>Get Started
                     </a>
                     <a href="https://github.com/flightsadmin/bootstrap-starter-kit"
