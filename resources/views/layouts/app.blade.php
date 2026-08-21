@@ -60,14 +60,17 @@
         <div class="flex-grow-1">
             <div class="ps-lg-260px">
                 <nav class="navbar d-lg-none">
-                    <div class="container-fluid d-flex justify-content-between">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
-                            aria-expanded="false">
-                            <i class="bi bi-list"></i>
-                        </button>
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="navbar-toggler border-0 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                                aria-expanded="false">
+                                <i class="bi bi-list fs-1"></i>
+                            </button>
+                            <a class="navbar-brand mb-0 fs-4 text-primary fw-semibold" href="{{ url('/') }}">
+                                {{ config('app.name', 'Laravel') }}
+                            </a>
+                        </div>
+                        <livewire:theme-toggle />
                     </div>
                 </nav>
 
