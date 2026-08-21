@@ -4,6 +4,8 @@
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/flightsadmin/bootstrap-starter-kit/release.yml?branch=main" alt="Build Status"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/v/release/flightsadmin/bootstrap-starter-kit" alt="Latest Release"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/flightsadmin/bootstrap-starter-kit" alt="Stars"></a>
+<a href="https://github.com/flightsadmin/bootstrap-starter-kit/network/members"><img src="https://img.shields.io/github/forks/flightsadmin/bootstrap-starter-kit" alt="Forks"></a>
+<a href="https://github.com/flightsadmin/bootstrap-starter-kit/issues"><img src="https://img.shields.io/github/issues/flightsadmin/bootstrap-starter-kit" alt="Issues"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/flightsadmin/bootstrap-starter-kit" alt="License"></a>
 </p>
 
