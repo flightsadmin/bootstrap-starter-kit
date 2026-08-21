@@ -1,0 +1,75 @@
+name: Create Release
+
+on:
+    push:
+        branches:
+            - main
+
+    workflow_dispatch:
+        inputs:
+            bump:
+                description: "Force version bump type"
+                required: true
+                type: choice
+                options:
+                    - auto
+                    - patch
+                    - minor
+                    - major
+                default: "auto"
+
+jobs:
+    release:
+        if: github.repository == 'flightsadmin/bootstrap-starter-kit'
+        name: Release Management
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
+
+            - name: Calculate new version
+              id: version
+              uses: paulhatch/semantic-version@v6.0.2
+              with:
+                  tag_prefix: "v"
+                  major_pattern: "BREAKING CHANGE:"
+                  minor_pattern: "feat:"
+                  version_format: "${major}.${minor}.${patch}"
+                  bump_each_commit: true
+
+            - name: Manage Releases
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  NEW_VERSION="${{ steps.version.outputs.version }}"
+                  PREV_VERSION="${{ steps.version.outputs.previous_version }}"
+
+                  # Override version manually if requested
+                  BUMP="${{ inputs.bump }}"
+                  if [ "$BUMP" = "minor" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$major.$((minor + 1)).0"
+                  elif [ "$BUMP" = "major" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$((major + 1)).0.0"
+                  elif [ "$BUMP" = "patch" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$major.$minor.$((patch + 1))"
+                  fi
+
+                  NEW_TAG="v$NEW_VERSION"
+                  PREV_TAG="v$PREV_VERSION"
+
+                  if [ "$NEW_TAG" != "$PREV_TAG" ]; then
+                      # Delete previous release and its tag
+                      if gh release view "$PREV_TAG" &>/dev/null; then
+                          gh release delete "$PREV_TAG" --cleanup-tag -y
+                      fi
+
+                      # Create the new release
+                      gh release create "$NEW_TAG" --generate-notes
+                  fi
