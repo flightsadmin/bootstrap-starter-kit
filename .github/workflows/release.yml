@@ -31,8 +31,8 @@ jobs:
               uses: paulhatch/semantic-version@v6.0.2
               with:
                   tag_prefix: "v"
-                  major_pattern: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump == 'major' && '.*' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bump != 'auto' && 'DISABLE_MAJOR' || 'BREAKING CHANGE:') }}
-                  minor_pattern: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.bump == 'minor' && '.*' || (github.event_name == 'workflow_dispatch' && github.event.inputs.bump != 'auto' && 'DISABLE_MINOR' || 'feat:') }}
+                  major_pattern: "BREAKING CHANGE:"
+                  minor_pattern: "feat:"
                   version_format: "${major}.${minor}.${patch}"
                   bump_each_commit: true
 
@@ -40,8 +40,24 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  NEW_TAG="v${{ steps.version.outputs.version }}"
-                  PREV_TAG="v${{ steps.version.outputs.previous_version }}"
+                  NEW_VERSION="${{ steps.version.outputs.version }}"
+                  PREV_VERSION="${{ steps.version.outputs.previous_version }}"
+                  
+                  # Override version manually if requested
+                  BUMP="${{ inputs.bump }}"
+                  if [ "$BUMP" = "minor" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$major.$((minor + 1)).0"
+                  elif [ "$BUMP" = "major" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$((major + 1)).0.0"
+                  elif [ "$BUMP" = "patch" ]; then
+                      IFS='.' read -r major minor patch <<< "$PREV_VERSION"
+                      NEW_VERSION="$major.$minor.$((patch + 1))"
+                  fi
+                  
+                  NEW_TAG="v$NEW_VERSION"
+                  PREV_TAG="v$PREV_VERSION"
 
                   if [ "$NEW_TAG" != "$PREV_TAG" ]; then
                       # Delete previous release and its tag
