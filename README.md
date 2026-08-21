@@ -1,4 +1,4 @@
-<p align="center" style="font-size: large;">
+<p align="center" style="font-size: 18px;">
 <a href="https://packagist.org/packages/flightsadmin/bootstrap-starter-kit"><img src="https://img.shields.io/packagist/dt/flightsadmin/bootstrap-starter-kit" alt="Total Downloads"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/releases"><img src="https://img.shields.io/github/v/release/flightsadmin/bootstrap-starter-kit" alt="Latest Release"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/flightsadmin/bootstrap-starter-kit" alt="Stars"></a>
