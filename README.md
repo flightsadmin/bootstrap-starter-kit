@@ -4,7 +4,7 @@
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/stargazers"><img src="https://img.shields.io/github/stars/flightsadmin/bootstrap-starter-kit" alt="Stars"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/network/members"><img src="https://img.shields.io/github/forks/flightsadmin/bootstrap-starter-kit" alt="Forks"></a>
 <a href="https://github.com/flightsadmin/bootstrap-starter-kit/issues"><img src="https://img.shields.io/github/issues/flightsadmin/bootstrap-starter-kit" alt="Issues"></a>
-<a href="https://packagist.org/packages/flightsadmin/bootstrap-starter-kit"><img src="https://img.shields.io/packagist/l/flightsadmin/bootstrap-starter-kit" alt="License"></a>
+<a href="https://github.com/flightsadmin/bootstrap-starter-kit/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/flightsadmin/bootstrap-starter-kit" alt="License"></a>
 </p>
 
 # Bootstrap Starter Kit for Laravel
