@@ -10,9 +10,12 @@
         "axios": "^1.19.0",
         "bootstrap": "^5.3.8",
         "bootstrap-icons": "^1.13.1",
-        "concurrently": "^10.0.5",
-        "laravel-vite-plugin": "^3.2",
-        "sass": "1.103.1",
-        "vite": "^8.2.2"
+        "concurrently": "^10.0.3",
+        "laravel-vite-plugin": "^3.1",
+        "sass": "^1.103.1",
+        "vite": "^8.0.0"
+    },
+    "optionalDependencies": {
+        "@laravel/multiplex": "^0.4.1"
     }
 }
